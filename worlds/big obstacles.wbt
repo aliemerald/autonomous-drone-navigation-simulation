@@ -1,0 +1,276 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/Road.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Pavement.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/buildings/protos/Windmill.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/buildings/protos/SmallManor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/manhole/protos/SquareManhole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Forest.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Grass.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/FormedConcrete.proto"
+EXTERNPROTO "../protos/Mavic2Pro.proto"
+
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+}
+Viewpoint {
+  orientation 0.46883642327362657 -0.5481918440354724 -0.6925879802198283 4.406800314766231
+  position 4.2077740420674585 -9.542030570262904 50.479083527238814
+  near 0.2
+  follow "Mavic 2 PRO"
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 400 400
+  tileSize 6 6
+  appearance Grass {
+  }
+}
+Mavic2Pro {
+  rotation 0 0 1 1.5708
+  controller "test"
+  supervisor TRUE
+}
+Road {
+  translation -43.8 9.2 0.01
+  rotation 0 0 1 -0.3926996938995747
+  width 3
+  numberOfLanes 1
+  rightBorder FALSE
+  leftBorder FALSE
+  wayPoints [
+    0 0 0
+    100 0 0
+    200 200 0
+  ]
+  splineSubdivision 8
+  appearance Pavement {
+    type "black stone"
+  }
+}
+Windmill {
+  translation -43.8656 -19.8433 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+}
+Windmill {
+  translation -44.258 -27.3356 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+  name "windmill(1)"
+}
+Windmill {
+  translation -46.2448 30.573 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+  name "windmill(2)"
+}
+Windmill {
+  translation -38.75 23.4 0
+  name "windmill(3)"
+}
+SmallManor {
+  translation -50.35 11.25 0
+  rotation 0 0 -1 0.392394
+}
+SquareManhole {
+  translation 0 0 -0.03
+}
+TeslaModel3Simple {
+  translation -41.5139 4.34169 0.31
+  rotation 0 0 1 -0.2618053071795865
+}
+Forest {
+  translation 0 0 -0.01
+  shape [
+    200 200
+    200 0
+    50 0
+    50 50
+    -50 50
+    -50 -50
+    50 -50
+    50 0
+    200 0
+    200 -200
+    -200 -200
+    -200 200
+  ]
+  density 0.01
+  type "cherry tree"
+  randomSeed 1
+  maxHeight 12
+  minHeight 6
+  maxRadius 6
+  minRadius 3
+}
+Solid {
+  translation 3.71 2.5 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  boundingObject USE obstacle
+}
+Solid {
+  translation 7 -1.79 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation -2 5.25 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation -4.52 -0.6 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation 11.92 3.41 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation 7.7 8.01 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation 13.54 12.62 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation 5.98 16.02 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE obstacle
+}
+Solid {
+  translation 0.85 12.07 4
+  children [
+    DEF obstacle Shape {
+      appearance FormedConcrete {
+      }
+      geometry Box {
+        size 2 2 8
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE obstacle
+}
+DEF WAYPOINT_MARKER Pose {
+  translation 0 0 -0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+DEF WAYPOINT_MARKERS Group {
+}
+DEF FLIGHT_PATH Group {
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 1 0 1
+        }
+      }
+      geometry DEF FLIGHT_PATH_LINE IndexedLineSet {
+        coord Coordinate {
+        }
+      }
+    }
+  ]
+}
